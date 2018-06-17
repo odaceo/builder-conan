@@ -5,15 +5,17 @@
 # Environment variables:
 # - CONAN_VERSION: the version to install
 
-# Resolve the conan file to download
-CONAN_FILE=conan-ubuntu-64_${CONAN_VERSION//./_}.deb
-CONAN_URL=https://github.com/conan-io/conan/releases/download/${CONAN_VERSION}/${CONAN_FILE}
+# Update your local package index
+apt-get update
 
-# Download the ubuntu/debian package
-wget ${CONAN_URL}
+# Install PIP package
+apt-get install -y python-pip
 
-# Install the ubuntu/debian package
-dpkg -i ${CONAN_FILE}
+# Remove the local package index
+rm -rf /var/lib/apt/lists/*
+
+# Install Conan package
+pip install conan==${CONAN_VERSION}.*
 
 # Make sure conan is working properly
 conan
