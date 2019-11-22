@@ -2,11 +2,11 @@ version: '3'
 
 services:
 
-  1.8-cmake3.12-clang6.0-ubuntu18:
+  1.20-cmake3.13-clang8.0-ubuntu18:
     build:
       context: ./ubuntu-18
       dockerfile: ../Dockerfile
       args:
-        CMAKE_VERSION: 3.12-clang6.0-ubuntu18
-        CONAN_VERSION: '1.8'
-    image: odaceo/conan:1.8-cmake3.12-clang6.0-ubuntu18
+        CMAKE_VERSION: 3.13-clang8.0-ubuntu18
+        CONAN_VERSION: '1.20'
+    image: odaceo/conan:1.20-cmake3.13-clang8.0-ubuntu18
